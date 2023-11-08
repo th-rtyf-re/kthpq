@@ -43,7 +43,6 @@ Scale=0.85%
 
 \newcommand*{\kthpq@engine@latex}{%
 % Default to Helvetica (sans serif) and Bitstream Charter (serif)
-\RequirePackage[T1]{fontenc}
 \RequirePackage[scaled=.92]{helvet}
 \usepackage{XCharter}
 \renewcommand{\familydefault}{\sfdefault}
@@ -66,6 +65,7 @@ Scale=0.85%
 \else
 % Set operators to sans with sans math fonts, and then all letters and text
 % back to the current sans serif font.
+\RequirePackage[OT1]{fontenc}
 \RequirePackage[onlymath]{sansmathfonts}
 \let\oldfamilydefault\familydefault
 \renewcommand{\familydefault}{\sfdefault}
