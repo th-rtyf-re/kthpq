@@ -21,7 +21,7 @@
 \usepackage{amsmath,amssymb,mathtools}
 
 % Probably load as late as possible
-\usetheme{kthpq}
+\usetheme[engine=lualatex, mathshape=sf]{kthpq}
 
 \def\kthpq{\texttt{kthpq}}
 
@@ -75,6 +75,11 @@
 \begin{frame}[fragile=singleslide]{How to use}
 \begin{itemize}
 \item To use \kthpq{}, add the command \verb|\usepackage{kthpq}| in the preamble, probably towards the end.
+\item There are two options you can add when loading the theme:
+\begin{itemize}
+\item \texttt{engine=lualatex} or \texttt{engine=latex}. The default and recommended engine for compiling with \kthpq{} is \texttt{lualatex}, which is the only way to get the recommended fonts Figtree and Georgia. The option \texttt{latex} should be faster, but uses Helvetica and Bitstream Charter.
+\item \texttt{mathshape=sf} or \texttt{mathshape=rm}. This determines the shape used for math. The default is \texttt{sf}, sans-serif, and \texttt{rm} corresponds to serif.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -123,7 +128,7 @@ The following features are not included:
 
 \begin{frame}{Lines}
 \insertlines
-\begin{minipage}{.65\pagewidth}
+\begin{minipage}{.65\paperwidth}
 \begin{itemize}
 \item KTH's Brand guidelines allow users to insert certain abstract line patters on slides.
 \item \kthpq{} comes with premade selections of lines. These are contained in macros of the form \emph{\texttt{\textbackslash lines\textnormal{\textit{cardinal}}}}, where \textit{cardinal} is one of the following: \texttt{northwest, northeast, east, southeast} (with some variants). These can be found in \texttt{kthpq-files/beamerinnerthemekthpq.sty}.

@@ -43,21 +43,38 @@ How to use
 
 ### On Overleaf
 
-Use the [Overleaf template](does not exist yet) or copy the file
-`beamertemplatekthpq.sty` and the folder `kthpq-files` to your project.
+Use the [Overleaf template](does not exist yet) or copy this repository to your
+project.
 
 ### On your computer
 
 Put this repository somewhere accessible by TeX (the simplest is to put the
-files in your working directory)
+files in your working directory).
 
 ### In both cases
 
-Add `\usetheme{kthpq}` to your preamble, probably towards the end. There are
-two options you can add when loading the theme:
+Your preamble should look something like this:
+    
+    \documentclass[17pt, t, lualatex]{beamer}
+    
+    ...
+    
+    \usetheme[...]{kthpq}
+    
+    \begin{document}
+
+Regarding the document class options:
+- `17pt` and `14pt` look pretty good, but the template is designed for 17pt and
+  the given slide size (254 x 143mm).
+- `t` aligns slides to the top, which is closer to the PowerPoint template
+  provided by KTH.
+- `lualatex` is used when using `kthpq` with the `LuaLaTeX` engine, see options
+  below.
+
+There are two options you can add when loading the theme:
 - `engine=lualatex` or `engine=latex`. The default and recommended engine for
   compiling with `kthpq` is `lualatex`, which is the only way to get the
   recommended fonts Figtree and Georgia. The option `latex` should be faster,
   but uses Helvetica and Bitstream Charter.
-- `mathshape=sf` or `rm`. This determines the shape used for math. The default
-  is `sf`, sans-serif, and `rm` corresponds to serif.
+- `mathshape=sf` or `mathshape=rm`. This determines the shape used for math.
+  The default is `sf`, sans-serif, and `rm` corresponds to serif.
