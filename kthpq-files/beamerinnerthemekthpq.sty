@@ -56,14 +56,14 @@
 \node[anchor = north west, inner sep = \innermargin] at (current page.north west) {\includegraphics[width=\largelogowidth]{\titlelogofilename}};
 \node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheast};
 \end{tikzpicture}%
-\vspace{.1\pageheight}%
+\vspace{.1\paperheight}%
 
 \usebeamercolor[fg]{title}%
-\parbox[t][.2\pageheight][b]{.7\paperwidth}{\raggedright \huge \inserttitle} \vspace{10px} \\
+\parbox[t][.2\paperheight][b]{.7\paperwidth}{\raggedright \huge \inserttitle} \vspace{10px} \\
 \usebeamercolor[fg]{subtitle}%
 \normalsize \insertauthor \\
 \insertdate\ --- \insertinstitute%
-\vspace{.1\pageheight}%
+\vspace{.1\paperheight}%
 }
 
 \defbeamertemplate{title page}{center}{%
@@ -73,16 +73,16 @@
 \node[anchor = north west, inner sep=0pt] at (current page.north west) {\linesnorthwest};
 \node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheastii};% Hard coded south east lines
 \end{tikzpicture}%
-\vspace{.125\pageheight}%
+\vspace{.125\paperheight}%
 \usebeamercolor[fg]{subtitle}%
 \begin{center}
 \usebeamercolor[fg]{title}%
-\parbox[t][.2\pageheight][b]{\textwidth}{\centering \huge \inserttitle} \vspace{10px} \\
+\parbox[t][.2\paperheight][b]{\textwidth}{\centering \huge \inserttitle} \vspace{10px} \\
 
 \normalsize \insertauthor \\
 \insertdate\ --- \insertinstitute%
 \end{center}
-\vspace{.1\pageheight}%
+\vspace{.1\paperheight}%
 }
 
 % Default title template is center
@@ -96,11 +96,11 @@
 \node[anchor = south east, inner sep=0pt] at (current page.south east) {\lineseast};
 \end{tikzpicture}%
 %
-\vspace{.2\pageheight}
+\vspace{.2\paperheight}
 
 \usebeamercolor[fg]{section title}%
-\parbox[t][.2\pageheight][b]{.75\paperwidth}{\raggedright \LARGE \insertsection}%
-\vspace{.15\pageheight}%
+\parbox[t][.2\paperheight][b]{.75\paperwidth}{\raggedright \LARGE \insertsection}%
+\vspace{.15\paperheight}%
 }
 
 % END SLIDE
