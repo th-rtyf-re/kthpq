@@ -6,6 +6,11 @@
 \mode<presentation>
 
 % Settings
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{kthpq-files/beamerfontthemekthpq}}
+
+\ProcessOptions\relax
+
+\usepackage{kthpq-files/beamerfontthemekthpq}
 \usepackage{kthpq-files/beamerfontthemekthpq}
 \usepackage{kthpq-files/beamerinnerthemekthpq}
 \usepackage{kthpq-files/beamerouterthemekthpq}
@@ -17,7 +22,7 @@
 
 % Macros
 \newcommand*{\inserttitlepage}[1][center]{%
-{\setbeamertemplate{headline}{}%[KTH_title]
+{\setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{}
 \setbeamertemplate{title page}[#1]
 \setbeamercolor{background canvas}{use=title, bg=title.bg}

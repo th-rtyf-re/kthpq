@@ -2,9 +2,25 @@
 
 \mode<presentation>
 
+\RequirePackage{kvoptions}
+
+% Options
+\SetupKeyvalOptions{%
+family=kthpq,
+prefix=kthpq@
+}
+\DeclareStringOption[lualatex]{engine}
+\DeclareStringOption[sf]{mathshape}
+\ProcessKeyvalOptions{kthpq}
+
+% Post-processing of options
+\newif\ifuselualatex
+\uselualatexfalse
+
+\newcommand*{\kthpq@engine@lualatex}{%
+\uselualatextrue
 \RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
-
 \setmainfont{Georgia}% as per KTH guidelines
 \setsansfont{Figtree}[% Beamer uses the sans serif font
 Path = kthpq-files/fonts/Figtree/otf/,
@@ -23,8 +39,20 @@ ItalicFont = VeraMoIt,
 BoldItalicFont = VeraMoBI,
 Scale=0.85%
 ]
+}
 
-% MATH FONT
+\newcommand*{\kthpq@engine@latex}{%
+% Default to Helvetica (sans serif) and Bitstream Charter (serif)
+\RequirePackage[T1]{fontenc}
+\RequirePackage[scaled=.92]{helvet}
+\usepackage{XCharter}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage[scaled=.85]{beramono}
+\usepackage[utf8]{inputenc}
+}
+
+\newcommand*{\kthpq@mathshape@sf}{%
+\ifuselualatex
 % Figtree is very limited in terms of math symbols (not even greek letters),
 % so we supplement it with FiraMath, a sans serif Open Type math font.
 %
@@ -35,5 +63,31 @@ Scale=0.85%
 \setmathfont{Figtree-Bold}[Path=kthpq-files/fonts/Figtree/otf/,range=bfup/{latin,Latin,num}]
 \setmathfont{Figtree-BoldItalic}[Path=kthpq-files/fonts/Figtree/otf/,range=bfit/{latin,Latin}]
 \setoperatorfont\mathsf
+\else
+% Set operators to sans with sans math fonts, and then all letters and text
+% back to the current sans serif font.
+\RequirePackage[onlymath]{sansmathfonts}
+\let\oldfamilydefault\familydefault
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage[italic]{mathastext}
+\renewcommand{\familydefault}{\oldfamilydefault}
+\fi
+}
+
+\newcommand*{\kthpq@mathshape@rm}{%
+\ifuselualatex
+\setmathfont{XCharter-Math}
+\else
+\let\oldfamilydefault\familydefault
+\renewcommand{\familydefault}{\rmdefault}
+\RequirePackage[italic]{mathastext}
+\renewcommand{\familydefault}{\oldfamilydefault}
+\fi
+}
+
+% Set fonts
+\csname kthpq@engine@\kthpq@engine\endcsname\relax
+\csname kthpq@mathshape@\kthpq@mathshape\endcsname\relax
+
 
 \mode<all>
