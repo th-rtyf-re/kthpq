@@ -1,0 +1,148 @@
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+
+\NeedsTeXFormat{LaTeX2e}
+\mode<presentation>
+
+% Requirements
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+
+\graphicspath{ {kthpq-files/figs/} }
+
+% INNER THEME
+% title, parts, blocks, etc.
+\newlength{\largelogowidth}
+\setlength{\largelogowidth}{24mm}
+\newlength{\innermargin}
+\setlength{\innermargin}{\largelogowidth/3}
+
+% KTH LINES
+%
+% One of the features of KTH's visual identity are line patterns. In this
+% theme, you can specify line patterns in each corner and edge of the slide
+% (north, north east, east, etc.). Each template then calls on one or more of
+% the line patterns.
+%
+% Line patterns are taken from the 1x1 lines PDF file in figs/lines/. The color
+% is specified by the color theme.
+\def\linesfilename{}
+
+\def\titlelogofilename{logo/KTH_logo_RGB_bla.pdf}
+\def\titlelinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
+\def\sectionlinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
+\def\bodylinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
+
+\def\linessoutheasti{\adjincludegraphics[width=.5\paperwidth, viewport={.4\width} {.6\height} {\width} {\height}, clip=true, rotate = -90]{\linesfilename}}
+\def\lineseast{\adjincludegraphics[width=\paperheight, viewport={.1\width} {0} {.7\width} {.3\height}, clip=true, rotate = -90, reflect]{\linesfilename}}
+\def\linesnortheast{\adjincludegraphics[height=.75\paperheight, viewport={0} {.5\height} {.4\width} {\height}, clip=true, reflect]{\linesfilename}}
+\def\linesnorthwest{\adjincludegraphics[height=.4\paperwidth, viewport={0} {.5\height} {.4\width} {\height}, clip=true]{\linesfilename}}
+% Smaller southeast lines for center titles
+\def\linessoutheastii{\adjincludegraphics[width=.4\paperwidth, viewport={.5\width} {.1\height} {.9\width} {.4\height}, clip=true]{\linesfilename}}
+
+\let\linessoutheast\linessoutheasti
+
+\def\insertlines{%
+\let\linesfilename\bodylinesfilename
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor = north east, inner sep = 0px] at (current page.north east) {\linesnortheast};
+\end{tikzpicture}
+}
+
+% TITLE PAGE
+\defbeamertemplate{title page}{left}{%
+\let\linesfilename\titlelinesfilename
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor = north west, inner sep = \innermargin] at (current page.north west) {\includegraphics[width=\largelogowidth]{\titlelogofilename}};
+\node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheast};
+\end{tikzpicture}%
+\vspace{.1\pageheight}%
+
+\usebeamercolor[fg]{title}%
+\parbox[t][.2\pageheight][b]{.7\paperwidth}{\raggedright \huge \inserttitle} \vspace{10px} \\
+\usebeamercolor[fg]{subtitle}%
+\normalsize \insertauthor \\
+\insertdate\ --- \insertinstitute%
+\vspace{.1\pageheight}%
+}
+
+\defbeamertemplate{title page}{center}{%
+\let\linesfilename\titlelinesfilename
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor = north, inner sep = 30mm] at (current page.north) {\includegraphics[width=40mm]{\titlelogofilename}};
+\node[anchor = north west, inner sep=0pt] at (current page.north west) {\linesnorthwest};
+\node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheastii};% Hard coded south east lines
+\end{tikzpicture}%
+\vspace{.125\pageheight}%
+\usebeamercolor[fg]{subtitle}%
+\begin{center}
+\usebeamercolor[fg]{title}%
+\parbox[t][.2\pageheight][b]{\textwidth}{\centering \huge \inserttitle} \vspace{10px} \\
+
+\normalsize \insertauthor \\
+\insertdate\ --- \insertinstitute%
+\end{center}
+\vspace{.1\pageheight}%
+}
+
+% Default title template is center
+\setbeamertemplate{title page}[center]
+
+% SECTION PAGE
+\setbeamertemplate{section page}{%
+\let\linesfilename\sectionlinesfilename
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor = north west, inner sep = \innermargin] at (current page.north west) {\includegraphics[width=\largelogowidth]{logo/KTH_logo_RGB_bla.pdf}};
+\node[anchor = south east, inner sep=0pt] at (current page.south east) {\lineseast};
+\end{tikzpicture}%
+%
+\vspace{.2\pageheight}
+
+\usebeamercolor[fg]{section title}%
+\parbox[t][.2\pageheight][b]{.75\paperwidth}{\raggedright \LARGE \insertsection}%
+\vspace{.15\pageheight}%
+}
+
+% END SLIDE
+\newcommand*{\insertendpage}{%
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\setbeamercolor{background canvas}{bg=KTH blue}
+\begin{frame}[b]
+\let\linesfilename\titlelinesfilename
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor = center] at (current page.center) {\includegraphics[width=60mm]{logo/KTH_logo_RGB_vit.pdf}};
+\node[anchor = north west, inner sep=0pt] at (current page.north west) {\linesnorthwest};
+\node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheastii};% Hard coded south east lines
+\end{tikzpicture}%
+\end{frame}
+}
+
+% BLOCKS
+
+\AtBeginDocument{
+%%%% changing block from https://tex.stackexchange.com/a/524625/216213
+\addtobeamertemplate{block begin}{%
+    \let\oldinsertblocktitle\insertblocktitle%
+    \def\insertblocktitle{\oldinsertblocktitle\par\kern-.5\prevdepth}% probably font dependent
+}{}
+\addtobeamertemplate{block alerted begin}{%
+    \let\oldinsertblocktitle\insertblocktitle%
+    \def\insertblocktitle{\oldinsertblocktitle\par\kern-.5\prevdepth}% probably font dependent
+}{}
+\addtobeamertemplate{block example begin}{%
+    \let\oldinsertblocktitle\insertblocktitle%
+    \def\insertblocktitle{\oldinsertblocktitle\par\kern-.5\prevdepth}% probably font dependent
+}{}
+%%%% end changing block
+}
+
+% ITEMIZE AND ENUMERATE
+
+\setbeamertemplate{itemize items}[circle]
+
+% BIBLIOGRAPHY
+
+\setbeamertemplate{bibliography item}[text]
+
+\mode<all>

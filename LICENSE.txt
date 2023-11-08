@@ -1,0 +1,33 @@
+Except where otherwise stated, this code is:
+
+MIT License
+
+Copyright (c) 2023 Isaac Ren
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following parts are licensed differently:
+- Figures in `kthpq-files/figs` belong to KTH Royal Institute of Technology.
+- [Figtree](https://github.com/erikdkennedy/figtree/tree/master), found in
+  the directory `fonts/Figtree` is licensed under SIL Open Font License,
+  Version 1.1. See `fonts/Figtree/OFL.txt` for more information.
+- [Bitstream Vera 1.10](https://download.gnome.org/sources/ttf-bitstream-vera/),
+  found in the directory `fonts/ttf-bitstream-vera-1.10`, is distributed
+  under copyright by Bitstream, Inc. See
+  `fonts/ttf-bitstream-vera-1.10/COPYRIGHT.TXT` for more information.

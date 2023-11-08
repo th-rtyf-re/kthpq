@@ -1,0 +1,39 @@
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+
+\mode<presentation>
+
+\RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
+\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
+
+\setmainfont{Georgia}% as per KTH guidelines
+\setsansfont{Figtree}[% Beamer uses the sans serif font
+Path = kthpq-files/fonts/Figtree/otf/,
+Extension = .otf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic%
+]
+\setmonofont{Beramono}[% A personally appreciated monospace font
+Path = kthpq-files/fonts/ttf-bitstream-vera-1.10/,
+Extension = .ttf,
+UprightFont = VeraMono,
+BoldFont = VeraMoBd,
+ItalicFont = VeraMoIt,
+BoldItalicFont = VeraMoBI,
+Scale=0.85%
+]
+
+% MATH FONT
+% Figtree is very limited in terms of math symbols (not even greek letters),
+% so we supplement it with FiraMath, a sans serif Open Type math font.
+%
+% Italic numerals are not included.
+\RequirePackage{firamath-otf}
+\setmathfont{Figtree-Regular}[Path=kthpq-files/fonts/Figtree/otf/,range=up/{latin,Latin,num}]
+\setmathfont{Figtree-Italic}[Path=kthpq-files/fonts/Figtree/otf/,range=it/{latin,Latin}]
+\setmathfont{Figtree-Bold}[Path=kthpq-files/fonts/Figtree/otf/,range=bfup/{latin,Latin,num}]
+\setmathfont{Figtree-BoldItalic}[Path=kthpq-files/fonts/Figtree/otf/,range=bfit/{latin,Latin}]
+\setoperatorfont\mathsf
+
+\mode<all>

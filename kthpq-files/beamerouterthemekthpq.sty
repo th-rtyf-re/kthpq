@@ -1,0 +1,86 @@
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+
+\NeedsTeXFormat{LaTeX2e}
+\mode<presentation>
+
+% Requirements
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+\RequirePackage{calc}
+
+\graphicspath{ {kthpq-files/figs/} }
+
+% Settings
+\newlength{\smalllogowidth}
+\setlength{\smalllogowidth}{17mm}
+\newlength{\outermargin}
+\setlength{\outermargin}{\smalllogowidth/3}
+
+% OUTER THEME
+% header, footer, frame title, etc.
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=2\outermargin, text margin right=2\outermargin}
+
+% HEADLINE
+\setbeamerfont{headline}{size=\footnotesize, shape=\normalfont}
+
+\defbeamertemplate{headline}{KTH-full}{%
+\vspace*{\outermargin}
+\begin{beamercolorbox}[wd=.5\paperwidth, dp=\outermargin]{section in head/foot}
+\hspace*{\outermargin}%
+\includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
+\hspace*{\outermargin}%
+\parbox[b][\smalllogowidth][c]{\dimexpr.5\paperwidth-\smalllogowidth-3\outermargin\relax}{%
+\raggedright \small \insertsection%
+}%
+\end{beamercolorbox}
+}
+
+\setbeamertemplate{headline}[KTH-full]
+
+% FOOTLINE
+\setbeamerfont{footline}{shape=\normalfont, size=\footnotesize}
+
+% Define a new footline template with entries left, center, and right
+\newcommand*{\deffootline}[4]{%
+\defbeamertemplate{footline}{#1}{%
+\begin{beamercolorbox}[dp=\outermargin]{footline}%
+\hspace*{\outermargin}%
+\rlap{#2}%
+\hfill
+#3
+\hfill
+\llap{#4}%
+\hspace*{\outermargin}%
+\end{beamercolorbox}%
+}%
+}
+
+% Set the footline template with entries left, center, and right
+\newcommand*{\setfootline}[3]{%
+\defbeamertemplate{footline}{%
+\begin{beamercolorbox}[dp=\outermargin]{footline}%
+\hspace*{\outermargin}%
+\rlap{#1}%
+\hfill
+#2
+\hfill
+\llap{#3}%
+\hspace*{\outermargin}%
+\end{beamercolorbox}%
+}%
+}
+
+\deffootline{KTH-full}{\insertshortauthor}{\insertshortinstitute}{\insertframenumber/\inserttotalframenumber}
+
+\setbeamertemplate{footline}[KTH-full]
+
+% FRAME
+\setbeamertemplate{frametitle}{%
+\insertframetitle%
+}
+
+
+\mode<all>
