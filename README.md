@@ -43,7 +43,7 @@ How to use
 
 ### On Overleaf
 
-Use the [Overleaf template](does not exist yet) or copy this repository to your
+Use the [Overleaf template](https://www.overleaf.com/latex/templates/kthpq-a-kth-beamer-template/ntqfkcrrsbhf) or copy this repository to your
 project.
 
 ### On your computer
