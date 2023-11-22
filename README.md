@@ -72,9 +72,9 @@ Regarding the document class options:
   below.
 
 There are two options you can add when loading the theme:
-- `engine=lualatex` or `engine=latex`. The default and recommended engine for
-  compiling with `kthpq` is `lualatex`, which is the only way to get the
-  recommended fonts Figtree and Georgia. The option `latex` should be faster,
-  but uses Helvetica and Bitstream Charter.
+- `engine=lualatex` or `engine=pdflatex`. The default and recommended engine
+  for compiling with `kthpq` is `lualatex`, which is the only way to get the
+  recommended fonts Figtree and Georgia. The option `pdflatex` should be
+  faster, but uses Helvetica and Bitstream Charter.
 - `mathshape=sf` or `mathshape=rm`. This determines the shape used for math.
   The default is `sf`, sans-serif, and `rm` corresponds to serif.
