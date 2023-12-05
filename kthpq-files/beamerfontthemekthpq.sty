@@ -20,7 +20,6 @@ prefix=kthpq@
 \newcommand*{\kthpq@engine@lualatex}{%
 \uselualatextrue
 \RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
-\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \setmainfont{Georgia}% as per KTH guidelines
 \setsansfont{Figtree}[% Beamer uses the sans serif font
 Path = kthpq-files/fonts/Figtree/otf/,
@@ -56,6 +55,7 @@ Scale=0.85%
 % so we supplement it with FiraMath, a sans serif Open Type math font.
 %
 % Italic numerals are not included.
+\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \RequirePackage{firamath-otf}
 \setmathfont{Figtree-Regular}[Path=kthpq-files/fonts/Figtree/otf/,range=up/{latin,Latin,num}]
 \setmathfont{Figtree-Italic}[Path=kthpq-files/fonts/Figtree/otf/,range=it/{latin,Latin}]
@@ -78,6 +78,7 @@ Scale=0.85%
 
 \newcommand*{\kthpq@mathshape@rm}{%
 \ifuselualatex
+\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \setmathfont{XCharter-Math}
 \else
 \let\oldfamilydefault\familydefault
@@ -87,7 +88,7 @@ Scale=0.85%
 \fi
 }
 
-\newcommand*{\kthpq@mathshape@other}{%
+\newcommand*{\kthpq@mathshape@custom}{%
 }
 
 % Set general fonts
