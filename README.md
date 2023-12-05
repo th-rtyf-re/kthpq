@@ -43,8 +43,8 @@ How to use
 
 ### On Overleaf
 
-Use the [Overleaf template](https://www.overleaf.com/latex/templates/kthpq-a-kth-beamer-template/ntqfkcrrsbhf) or copy this repository to your
-project.
+Use the [Overleaf template](https://www.overleaf.com/latex/templates/kthpq-a-kth-beamer-template/ntqfkcrrsbhf)
+or copy this repository to your project.
 
 ### On your computer
 
@@ -72,9 +72,11 @@ Regarding the document class options:
   below.
 
 There are two options you can add when loading the theme:
-- `engine=lualatex` or `engine=pdflatex`. The default and recommended engine
+- `engine=lualatex` or `pdflatex`. The default and recommended engine
   for compiling with `kthpq` is `lualatex`, which is the only way to get the
   recommended fonts Figtree and Georgia. The option `pdflatex` should be
   faster, but uses Helvetica and Bitstream Charter.
-- `mathshape=sf` or `mathshape=rm`. This determines the shape used for math.
-  The default is `sf`, sans-serif, and `rm` corresponds to serif.
+- `mathshape=sf`, `rm`, or `custom`. This determines the shape used for math.
+  The default is `sf`, sans-serif. `rm` corresponds to serif and `custom`
+  means that no new math font is loaded (in case you want to load your own
+  font).

@@ -77,8 +77,8 @@
 \item To use \kthpq{}, add the command \verb|\usepackage{kthpq}| in the preamble, probably towards the end.
 \item There are two options you can add when loading the theme:
 \begin{itemize}
-\item \texttt{engine=lualatex} or \texttt{engine=pdflatex}. The default and recommended engine for compiling with \kthpq{} is \texttt{lualatex}, which is the only way to get the recommended fonts Figtree and Georgia. The option \texttt{pdflatex} should be faster, but uses Helvetica and Bitstream Charter.
-\item \texttt{mathshape=sf} or \texttt{mathshape=rm}. This determines the shape used for math. The default is \texttt{sf}, sans-serif, and \texttt{rm} corresponds to serif.
+\item \texttt{engine=lualatex} or \texttt{pdflatex}. The default and recommended engine for compiling with \kthpq{} is \texttt{lualatex}, which is the only way to get the recommended fonts Figtree and Georgia. The option \texttt{pdflatex} should be faster, but uses Helvetica and Bitstream Charter.
+\item \texttt{mathshape=sf}, \texttt{rm}, or \texttt{custom}. This determines the shape used for math. The default is \texttt{sf}, sans-serif. \texttt{rm} corresponds to serif and \texttt{custom} means that no new math font is loaded (in case you want to load your own font).
 \end{itemize}
 \end{itemize}
 \end{frame}

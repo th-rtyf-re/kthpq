@@ -59,9 +59,9 @@
 \vspace{.1\paperheight}%
 
 \usebeamercolor[fg]{title}%
-\parbox[t][.2\paperheight][b]{.7\paperwidth}{\raggedright \huge \inserttitle} \vspace{10px} \\
+\parbox[t][.2\paperheight][b]{.7\paperwidth}{\raggedright \usebeamerfont{title} \inserttitle} \vspace{10px} \\
 \usebeamercolor[fg]{subtitle}%
-\normalsize \insertauthor \\
+\usebeamerfont{subtitle} \insertauthor \\
 \insertdate\ --- \insertinstitute%
 \vspace{.1\paperheight}%
 }
@@ -69,17 +69,17 @@
 \defbeamertemplate{title page}{center}{%
 \let\linesfilename\titlelinesfilename
 \begin{tikzpicture}[remember picture, overlay]
-\node[anchor = north, inner sep = 30mm] at (current page.north) {\includegraphics[width=40mm]{\titlelogofilename}};
+\node[anchor = north, inner sep = 22mm] at (current page.north) {\includegraphics[width=35mm]{\titlelogofilename}};
 \node[anchor = north west, inner sep=0pt] at (current page.north west) {\linesnorthwest};
 \node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheastii};% Hard coded south east lines
 \end{tikzpicture}%
 \vspace{.125\paperheight}%
-\usebeamercolor[fg]{subtitle}%
 \begin{center}
 \usebeamercolor[fg]{title}%
-\parbox[t][.2\paperheight][b]{\textwidth}{\centering \huge \inserttitle} \vspace{10px} \\
+\parbox[t][.2\paperheight][b]{\textwidth}{\centering \usebeamerfont{title}\inserttitle} \vspace{10px} \\
 
-\normalsize \insertauthor \\
+\usebeamercolor[fg]{subtitle}%
+\usebeamerfont{subtitle} \insertauthor \\
 \insertdate\ --- \insertinstitute%
 \end{center}
 \vspace{.1\paperheight}%

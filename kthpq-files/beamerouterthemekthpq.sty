@@ -33,7 +33,7 @@
 \includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
 \hspace*{\outermargin}%
 \parbox[b][\smalllogowidth][c]{\dimexpr.5\paperwidth-\smalllogowidth-3\outermargin\relax}{%
-\raggedright \small \insertsection%
+\raggedright \usebeamerfont{section in head/foot} \insertsection%
 }%
 \end{beamercolorbox}
 }
@@ -41,7 +41,6 @@
 \setbeamertemplate{headline}[KTH-full]
 
 % FOOTLINE
-\setbeamerfont{footline}{shape=\normalfont, size=\footnotesize}
 
 % Define a new footline template with entries left, center, and right
 \newcommand*{\deffootline}[4]{%
@@ -60,7 +59,7 @@
 
 % Set the footline template with entries left, center, and right
 \newcommand*{\setfootline}[3]{%
-\defbeamertemplate{footline}{%
+\setbeamertemplate{footline}{%
 \begin{beamercolorbox}[dp=\outermargin]{footline}%
 \hspace*{\outermargin}%
 \rlap{#1}%
