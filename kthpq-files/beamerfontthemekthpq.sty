@@ -21,23 +21,8 @@ prefix=kthpq@
 \uselualatextrue
 \RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
 \setmainfont{Georgia}% as per KTH guidelines
-\setsansfont{Figtree}[% Beamer uses the sans serif font
-Path = kthpq-files/fonts/Figtree/otf/,
-Extension = .otf,
-UprightFont = *-Regular,
-BoldFont = *-Bold,
-ItalicFont = *-Italic,
-BoldItalicFont = *-BoldItalic%
-]
-\setmonofont{Beramono}[% A personally appreciated monospace font
-Path = kthpq-files/fonts/ttf-bitstream-vera-1.10/,
-Extension = .ttf,
-UprightFont = VeraMono,
-BoldFont = VeraMoBd,
-ItalicFont = VeraMoIt,
-BoldItalicFont = VeraMoBI,
-Scale=0.85%
-]
+\setsansfont{Figtree}
+\setmonofont{Beramono}
 }
 
 \newcommand*{\kthpq@engine@pdflatex}{%
@@ -57,10 +42,10 @@ Scale=0.85%
 % Italic numerals are not included.
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \RequirePackage{firamath-otf}
-\setmathfont{Figtree-Regular}[Path=kthpq-files/fonts/Figtree/otf/,range=up/{latin,Latin,num}]
-\setmathfont{Figtree-Italic}[Path=kthpq-files/fonts/Figtree/otf/,range=it/{latin,Latin}]
-\setmathfont{Figtree-Bold}[Path=kthpq-files/fonts/Figtree/otf/,range=bfup/{latin,Latin,num}]
-\setmathfont{Figtree-BoldItalic}[Path=kthpq-files/fonts/Figtree/otf/,range=bfit/{latin,Latin}]
+\setmathfont{Figtree-Regular}[range=up/{latin,Latin,num}]
+\setmathfont{Figtree-Italic}[range=it/{latin,Latin}]
+\setmathfont{Figtree-Bold}[range=bfup/{latin,Latin,num}]
+\setmathfont{Figtree-BoldItalic}[range=bfit/{latin,Latin}]
 \setmathfont{Latin Modern Math}[range={frak,\bigcap,\bigcup,\bigoplus,\bigwedge,\bigvee}]
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \setoperatorfont\mathsf
