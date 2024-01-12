@@ -1,9 +1,0 @@
-\defaultfontfeatures[Beramono]{% A personally appreciated monospace font
-Path = kthpq-files/fonts/ttf-bitstream-vera-1.10/,
-Extension = .ttf,
-UprightFont = VeraMono,
-BoldFont = VeraMoBd,
-ItalicFont = VeraMoIt,
-BoldItalicFont = VeraMoBI,
-Scale=0.85%
-}

@@ -1,8 +1,0 @@
-\defaultfontfeatures[Figtree]{% Beamer uses the sans serif font
-Path = kthpq-files/fonts/Figtree/otf/,
-Extension = .otf,
-UprightFont = *-Regular,
-BoldFont = *-Bold,
-ItalicFont = *-Italic,
-BoldItalicFont = *-BoldItalic%
-}

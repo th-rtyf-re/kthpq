@@ -11,18 +11,37 @@ prefix=kthpq@
 }
 \DeclareStringOption[lualatex]{engine}
 \DeclareStringOption[sf]{mathshape}
+\DeclareStringOption[current]{fontlocation}
 \ProcessKeyvalOptions{kthpq}
 
 % Post-processing of options
 \newif\ifuselualatex
 \uselualatexfalse
 
+\newif\ifcurrentfontlocation
+\currentfontlocationtrue
+
+\newcommand*{\kthpq@fontlocation@known}{% For local setups where lualatex can find fonts on its own
+\currentfontlocationfalse
+}
+
 \newcommand*{\kthpq@engine@lualatex}{%
 \uselualatextrue
 \RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
 \setmainfont{Georgia}% as per KTH guidelines
+\ifcurrentfontlocation
+\setsansfont{Figtree}[% Beamer uses the sans serif font
+Path = kthpq-files/fonts/Figtree/otf/,
+Extension = .otf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic%
+]
+\else
 \setsansfont{Figtree}
-\setmonofont{Beramono}
+\fi
+\setmonofont{Bitstream Vera Sans Mono}[Scale=.9]
 }
 
 \newcommand*{\kthpq@engine@pdflatex}{%
@@ -42,10 +61,17 @@ prefix=kthpq@
 % Italic numerals are not included.
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \RequirePackage{firamath-otf}
+\ifcurrentfontlocation
+\setmathfont{Figtree-Regular}[Path=kthpq-files/fonts/Figtree/otf/,range=up/{latin,Latin,num}]
+\setmathfont{Figtree-Italic}[Path=kthpq-files/fonts/Figtree/otf/,range=it/{latin,Latin}]
+\setmathfont{Figtree-Bold}[Path=kthpq-files/fonts/Figtree/otf/,range=bfup/{latin,Latin,num}]
+\setmathfont{Figtree-BoldItalic}[Path=kthpq-files/fonts/Figtree/otf/,range=bfit/{latin,Latin}]
+\else
 \setmathfont{Figtree-Regular}[range=up/{latin,Latin,num}]
 \setmathfont{Figtree-Italic}[range=it/{latin,Latin}]
 \setmathfont{Figtree-Bold}[range=bfup/{latin,Latin,num}]
 \setmathfont{Figtree-BoldItalic}[range=bfit/{latin,Latin}]
+\fi
 \setmathfont{Latin Modern Math}[range={frak,\bigcap,\bigcup,\bigoplus,\bigwedge,\bigvee}]
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \setoperatorfont\mathsf
@@ -79,6 +105,7 @@ prefix=kthpq@
 }
 
 % Set general fonts
+\csname kthpq@fontlocation@\kthpq@fontlocation\endcsname\relax
 \csname kthpq@engine@\kthpq@engine\endcsname\relax
 \csname kthpq@mathshape@\kthpq@mathshape\endcsname\relax
 
