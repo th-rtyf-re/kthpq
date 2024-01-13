@@ -34,12 +34,11 @@ This software is meant to be accessible via the
 [Overleaf gallery](https://www.overleaf.com/gallery/tagged/kth), where it is
 accompanied by the `.tex` file `sample.tex`.
 
-This software also includes the file `documentation.tex`, along with its
-compiled output `documentation.pdf`, which serves as the documentation of the
-software.
-
 How to use
 ----------
+
+See the [documentation](https://github.com/th-rtyf-re/kthpq-docs) for a more
+detailed presentation of the template.
 
 ### On Overleaf
 
