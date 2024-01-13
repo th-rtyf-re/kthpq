@@ -67,7 +67,7 @@ Regarding the document class options:
 - `lualatex` is used when using `kthpq` with the `LuaLaTeX` engine, see options
   below.
 
-There are two options you can add when loading the theme:
+The following options are available when loading the theme:
 - `engine=lualatex` or `pdflatex`. The default and recommended engine
   for compiling with `kthpq` is `lualatex`, which is the only way to get the
   recommended fonts Figtree and Georgia. The option `pdflatex` should be
@@ -76,3 +76,7 @@ There are two options you can add when loading the theme:
   The default is `sf`, sans-serif. `rm` corresponds to serif and `custom`
   means that no new math font is loaded (in case you want to load your own
   font).
+- `fontdir=<directory>` or `auto`. Provide the directory path (relative or
+  absolute) to the Figtree font files. The path used on Overleaf is provided
+  in `sample.tex`. For local setups, use the option `auto` when `fontspec` can
+  find the font by itself.

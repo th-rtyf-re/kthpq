@@ -11,37 +11,35 @@ prefix=kthpq@
 }
 \DeclareStringOption[lualatex]{engine}
 \DeclareStringOption[sf]{mathshape}
-\DeclareStringOption[current]{fontlocation}
+\DeclareStringOption[auto]{fontdir}
 \ProcessKeyvalOptions{kthpq}
 
 % Post-processing of options
 \newif\ifuselualatex
 \uselualatexfalse
 
-\newif\ifcurrentfontlocation
-\currentfontlocationtrue
+\newif\ifautofontdir
+\autofontdirfalse
 
-\newcommand*{\kthpq@fontlocation@known}{% For local setups where lualatex can find fonts on its own
-\currentfontlocationfalse
+\newcommand*{\kthpq@fontdir@auto}{% For local setups where lualatex can find Figtree on its own
+\autofontdirtrue
 }
 
 \newcommand*{\kthpq@engine@lualatex}{%
 \uselualatextrue
-\RequirePackage[no-math, quiet]{fontspec}% add option "quiet" if the warnings are a problem
+\RequirePackage[no-math,quiet]{fontspec}% add option "quiet" if the warnings are a problem
 \setmainfont{Georgia}% as per KTH guidelines
-\ifcurrentfontlocation
+\ifautofontdir
+\setsansfont{Figtree}
+\else
 \setsansfont{Figtree}[% Beamer uses the sans serif font
-Path = kthpq-files/fonts/Figtree/otf/,
-Extension = .otf,
+Path = \kthpq@fontdir,
 UprightFont = *-Regular,
 BoldFont = *-Bold,
 ItalicFont = *-Italic,
 BoldItalicFont = *-BoldItalic%
 ]
-\else
-\setsansfont{Figtree}
 \fi
-\setmonofont{Bitstream Vera Sans Mono}[Scale=.9]
 }
 
 \newcommand*{\kthpq@engine@pdflatex}{%
@@ -49,7 +47,6 @@ BoldItalicFont = *-BoldItalic%
 \RequirePackage[scaled=.92]{helvet}
 \usepackage{XCharter}
 \renewcommand{\familydefault}{\sfdefault}
-\RequirePackage[scaled=.85]{beramono}
 \usepackage[utf8]{inputenc}
 }
 
@@ -61,16 +58,16 @@ BoldItalicFont = *-BoldItalic%
 % Italic numerals are not included.
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \RequirePackage{firamath-otf}
-\ifcurrentfontlocation
-\setmathfont{Figtree-Regular}[Path=kthpq-files/fonts/Figtree/otf/,range=up/{latin,Latin,num}]
-\setmathfont{Figtree-Italic}[Path=kthpq-files/fonts/Figtree/otf/,range=it/{latin,Latin}]
-\setmathfont{Figtree-Bold}[Path=kthpq-files/fonts/Figtree/otf/,range=bfup/{latin,Latin,num}]
-\setmathfont{Figtree-BoldItalic}[Path=kthpq-files/fonts/Figtree/otf/,range=bfit/{latin,Latin}]
-\else
+\ifautofontdir
 \setmathfont{Figtree-Regular}[range=up/{latin,Latin,num}]
 \setmathfont{Figtree-Italic}[range=it/{latin,Latin}]
 \setmathfont{Figtree-Bold}[range=bfup/{latin,Latin,num}]
 \setmathfont{Figtree-BoldItalic}[range=bfit/{latin,Latin}]
+\else
+\setmathfont{Figtree-Regular}[Path=\kthpq@fontdir,range=up/{latin,Latin,num}]
+\setmathfont{Figtree-Italic}[Path=\kthpq@fontdir,range=it/{latin,Latin}]
+\setmathfont{Figtree-Bold}[Path=\kthpq@fontdir,range=bfup/{latin,Latin,num}]
+\setmathfont{Figtree-BoldItalic}[Path=\kthpq@fontdir,range=bfit/{latin,Latin}]
 \fi
 \setmathfont{Latin Modern Math}[range={frak,\bigcap,\bigcup,\bigoplus,\bigwedge,\bigvee}]
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
@@ -105,7 +102,7 @@ BoldItalicFont = *-BoldItalic%
 }
 
 % Set general fonts
-\csname kthpq@fontlocation@\kthpq@fontlocation\endcsname\relax
+\csname kthpq@fontdir@\kthpq@fontdir\endcsname\relax
 \csname kthpq@engine@\kthpq@engine\endcsname\relax
 \csname kthpq@mathshape@\kthpq@mathshape\endcsname\relax
 
