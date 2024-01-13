@@ -19,10 +19,7 @@ using the template for a presentation, there is no need to worry about this :)
 
 This software includes parts of
 [Figtree](https://github.com/erikdkennedy/figtree/tree/master), found in the
-directory `fonts/Figtree`, and
-[Bitstream Vera 1.10](https://download.gnome.org/sources/ttf-bitstream-vera/),
-found in the directory `fonts/ttf-bitstream-vera-1.10`, retrieved in November,
-2023. See `LICENSE.txt` for information about their licensing.
+directory `fonts/Figtree`.
 
 This package also includes elements of KTH's visual identity. These are stored
 in the `kthpq-files/figs` directory.

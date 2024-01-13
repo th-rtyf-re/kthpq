@@ -27,7 +27,3 @@ The following parts are licensed differently:
 - [Figtree](https://github.com/erikdkennedy/figtree/tree/master), found in
   the directory `fonts/Figtree` is licensed under SIL Open Font License,
   Version 1.1. See `fonts/Figtree/OFL.txt` for more information.
-- [Bitstream Vera 1.10](https://download.gnome.org/sources/ttf-bitstream-vera/),
-  found in the directory `fonts/ttf-bitstream-vera-1.10`, is distributed
-  under copyright by Bitstream, Inc. See
-  `fonts/ttf-bitstream-vera-1.10/COPYRIGHT.TXT` for more information.
