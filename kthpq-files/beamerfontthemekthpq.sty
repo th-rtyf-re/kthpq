@@ -28,11 +28,11 @@ prefix=kthpq@
 \newcommand*{\kthpq@engine@lualatex}{%
 \uselualatextrue
 \RequirePackage[no-math,quiet]{fontspec}% add option "quiet" if the warnings are a problem
-\setmainfont{Georgia}% as per KTH guidelines
+\setmainfont{Georgia}
 \ifautofontdir
 \setsansfont{Figtree}
 \else
-\setsansfont{Figtree}[% Beamer uses the sans serif font
+\setsansfont{Figtree}[%
 Path = \kthpq@fontdir,
 UprightFont = *-Regular,
 BoldFont = *-Bold,
@@ -52,8 +52,8 @@ BoldItalicFont = *-BoldItalic%
 
 \newcommand*{\kthpq@mathshape@sf}{%
 \ifuselualatex
-% Figtree is very limited in terms of math symbols (not even greek letters),
-% so we supplement it with FiraMath, a sans serif Open Type math font.
+% Figtree is very limited in terms of math symbols, so we supplement it with
+% FiraMath, a sans serif Open Type math font. Arial is used for Greek letters.
 %
 % Italic numerals are not included.
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
