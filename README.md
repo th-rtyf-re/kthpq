@@ -80,3 +80,4 @@ The following options are available when loading the theme:
   absolute) to the Figtree font files. The path used on Overleaf is provided
   in `sample.tex`. For local setups, use the option `auto` when `fontspec` can
   find the font by itself.
+- `navy=<true|false>` Choose if wanting to use navy blue for the title and end slides or to use the light blue for title and KTH blue for end. Defaults as true.

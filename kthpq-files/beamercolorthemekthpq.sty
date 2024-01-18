@@ -1,9 +1,16 @@
-% Copyright (c) 2023-2024 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
 
 \NeedsTeXFormat{LaTeX2e}
 \mode<presentation>
 
 \RequirePackage{xcolor}
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{%
+family=kthpq,
+prefix=kthpq@
+}
+
 
 % COLORS
 % Primary colors
@@ -76,11 +83,18 @@
 
 \setbeamercolor{titlelike}{parent=palette primary}
 
-\setbeamercolor{title}{bg=light blue, fg=navy}
+\ifkthpq@navy
+    \setbeamercolor{title}{bg=navy, fg=white}
+\else
+    \setbeamercolor{title}{bg=light blue, fg=navy}
+\fi
 % \setbeamercolor{title in head/foot}{parent=palette quaternary}
 % \setbeamercolor{title in sidebar}{parent=palette sidebar quaternary}
 
-\setbeamercolor{subtitle}{fg=KTH blue}
+\ifkthpq@navy
+	\setbeamercolor{subtitle}{fg=sky blue}
+\else
+	\setbeamercolor{subtitle}{fg=KTH blue}
 
 \setbeamercolor{author}{parent=subtitle}
 % \setbeamercolor{author in head/foot}{parent=palette primary}

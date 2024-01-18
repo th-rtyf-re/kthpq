@@ -1,4 +1,4 @@
-% Copyright (c) 2023-2024 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemekthpq}[2023/10/05]
@@ -7,6 +7,17 @@
 
 % Settings
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{kthpq-files/beamerfontthemekthpq}}
+\SetupKeyvalOptions{%
+family=kthpq,
+prefix=kthpq@
+}
+
+\DeclareOption{navy}{\PassOptionsToPackage{\CurrentOption}{kthpq-files/beamercolorthemekthpq}
+\PassOptionsToPackage{\CurrentOption}{kthpq-files/beamerinnerthemekthpq.sty}}
+\SetupKeyvalOptions{%
+family=kthpq,
+prefix=kthpq@
+}
 
 \ProcessOptions\relax
 

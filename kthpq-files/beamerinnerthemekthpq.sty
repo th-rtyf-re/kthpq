@@ -1,4 +1,4 @@
-% Copyright (c) 2023-2024 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
+% Copyright (c) 2023 Isaac Ren. Licensed under the MIT license (see LICENSE.txt).
 
 \NeedsTeXFormat{LaTeX2e}
 \mode<presentation>
@@ -9,6 +9,14 @@
 \RequirePackage{adjustbox}
 
 \graphicspath{ {kthpq-files/figs/} }
+
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{%
+family=kthpq,
+prefix=kthpq@
+}
+
 
 % INNER THEME
 % title, parts, blocks, etc.
@@ -28,7 +36,11 @@
 % is specified by the color theme.
 \def\linesfilename{}
 
-\def\titlelogofilename{logo/KTH_logo_RGB_bla.pdf}
+\ifkthpq@navy
+    \def\titlelogofilename{logo/KTH_logo_RGB_vit.pdf}
+\else 
+    \def\titlelogofilename{logo/KTH_logo_RGB_bla.pdf}
+\fi
 \def\titlelinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
 \def\sectionlinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
 \def\bodylinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
@@ -107,7 +119,11 @@
 \newcommand*{\insertendpage}{%
 \setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{}
-\setbeamercolor{background canvas}{bg=KTH blue}
+\ifkthpq@navy
+    \setbeamercolor{background canvas}{bg=navy}
+\else 
+    \setbeamercolor{background canvas}{bg=KTH blue}
+\fi
 \begin{frame}[b]
 \let\linesfilename\titlelinesfilename
 \begin{tikzpicture}[remember picture, overlay]
