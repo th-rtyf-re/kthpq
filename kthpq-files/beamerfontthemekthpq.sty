@@ -34,10 +34,10 @@ prefix=kthpq@
 \else
 \setsansfont{Figtree}[%
 Path = \kthpq@fontdir,
-UprightFont = *-Regular,
-BoldFont = *-Bold,
-ItalicFont = *-Italic,
-BoldItalicFont = *-BoldItalic%
+UprightFont = *-Regular.otf,
+BoldFont = *-Bold.otf,
+ItalicFont = *-Italic.otf,
+BoldItalicFont = *-BoldItalic.otf%
 ]
 \fi
 }
@@ -56,31 +56,28 @@ BoldItalicFont = *-BoldItalic%
 % FiraMath, a sans serif Open Type math font. Arial is used for Greek letters.
 %
 % Italic numerals are not included.
+% See https://github.com/wspr/unicode-math/issues/626 for selection of certain symbols
 \RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}]{unicode-math}
 \setmathfont{Latin Modern Math}
 % Use Fira Math where it is defined (except for circle binary operations and
 % symbols defined in Figtree). See Fira Math's documentation for details.
-\setmathfont{Fira Math}[range={"2190-"2211,"2213-"2214,"2217-"2230,"2234-"2259,"2261-"2263,"2266-"223D,"2240-"224C,"2250-"2255,"2260-"226B,"226E-"2294,"22C5,"22CD-"22CF,"22D6-"22E8,"22EF,"2302,"2308-"230B,"2310,"239B-"23AD,"23B4-"23B5,"23DC-"23DF,"27C2,"27E8-"27EB,"27EE-"27FF,"2900-"290B,"2912-"291C,"294A-"2951,"295A-"2961,"296E-"296F,"2980-"2981,"299F-"29A3,"29A6-"29A7,"2980,"29A0C,"2A7D-"2A7E,"2B30-"2B36,"2B39-"2B3D,"2B45-"2B46}]
+\setmathfont{Fira Math}[range={"2212,\minus,"2032,\prime,"0028-"0029,"005B,"005D,"2010-"2012,"2015-"2016,"2030,"2033-"2037,"203F,"2044,"2057,"2190-"2211,"2213-"2214,"2217,"2219-"2230,"2234-"2259,"2261-"2263,"2266-"223D,"2240-"224C,"2250-"2255,"2260-"226B,"226E-"2294,"22C5,"22CD-"22CF,"22D6-"22E8,"22EF,"2302,"2308-"230B,"2310,"239B-"23AD,"23B4-"23B5,"23DC-"23DF,"27C2,"27E8-"27EB,"27EE-"27FF,"2900-"290B,"2912-"291C,"294A-"2951,"295A-"2961,"296E-"296F,"2980-"2981,"299F-"29A3,"29A6-"29A7,"2980,"29A0C,"2A7D-"2A7E,"2B30-"2B36,"2B39-"2B3D,"2B45-"2B46}]
 \ifautofontdir
-\setmathfont{Figtree-Regular}[range={"0021-"036F,"2010-"205E,"215B-"215E,\minus,%see https://github.com/wspr/unicode-math/issues/626
-"2212,"2215,"2260,"2264-"2265}]
-\setmathfont{Figtree-Regular}[range=up/{latin,Latin,num}]
+\setmathfont{Figtree-Regular}[range={"0021-"0027,"002A-"005A,"005C,"005E-"036F,"2013-"2014,"2018-"201E,"2020-"2022,"2026,"2039-"203A,"20AC,"215B-"215E,"2215,"2260,"2264-"2265,up/{latin,Latin,num}}]
 \setmathfont{Figtree-Italic}[range=it/{latin,Latin}]
 \setmathfont{Figtree-Bold}[range=bfup/{latin,Latin,num}]
 \setmathfont{Figtree-BoldItalic}[range=bfit/{latin,Latin}]
 \else
-\setmathfont{Figtree-Regular}[Path=\kthpq@fontdir,range={"0021-"036F,"2010-"205E,"215B-"215E,\minus,"2212,"2215,"2260,"2264-"2265}]
-\setmathfont{Figtree-Regular}[Path=\kthpq@fontdir,range=up/{latin,Latin,num}]
-\setmathfont{Figtree-Italic}[Path=\kthpq@fontdir,range=it/{latin,Latin}]
-\setmathfont{Figtree-Bold}[Path=\kthpq@fontdir,range=bfup/{latin,Latin,num}]
-\setmathfont{Figtree-BoldItalic}[Path=\kthpq@fontdir,range=bfit/{latin,Latin}]
+\setmathfont{Figtree-Regular.otf}[Path=\kthpq@fontdir,range={"0021-"0027,"002A-"005A,"005C,"005E-"036F,"2013-"2014,"2018-"201E,"2020-"2022,"2026,"2039-"203A,"20AC,"215B-"215E,"2215,"2260,"2264-"2265,up/{latin,Latin,num}}]
+\setmathfont{Figtree-Italic.otf}[Path=\kthpq@fontdir,range=it/{latin,Latin}]
+\setmathfont{Figtree-Bold.otf}[Path=\kthpq@fontdir,range=bfup/{latin,Latin,num}]
+\setmathfont{Figtree-BoldItalic.otf}[Path=\kthpq@fontdir,range=bfit/{latin,Latin}]
 \fi
 \setmathfont{Arial}[range=up/{greek,Greek}]
 \setmathfont{Arial Italic}[range=it/{greek,Greek}]
 \setmathfont{Arial Bold}[range=bfup/{greek,Greek}]
 \setmathfont{Arial Bold Italic}[range=bfit/{greek,Greek}]
-\DeclareSymbolFont{symbols}{OMS}{cmsy}{m}{n}
-\DeclareSymbolFontAlphabet{\mathcal}{symbols}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \setoperatorfont\mathsf
 \else
 % Set operators to sans with sans math fonts, and then all letters and text

@@ -32,6 +32,7 @@
 \def\titlelinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
 \def\sectionlinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
 \def\bodylinesfilename{lines/Linjemonster_himmelsbla_RGB_1x1.pdf}
+\let\endtitlelinesfilename\titlelinesfilename
 
 \def\linessoutheasti{\adjincludegraphics[width=.5\paperwidth, viewport={.4\width} {.6\height} {\width} {\height}, clip=true, rotate = -90]{\linesfilename}}
 \def\lineseast{\adjincludegraphics[width=\paperheight, viewport={.1\width} {0} {.7\width} {.3\height}, clip=true, rotate = -90, reflect]{\linesfilename}}
@@ -105,17 +106,17 @@
 
 % END SLIDE
 \newcommand*{\insertendpage}{%
-\setbeamertemplate{headline}{}
+{\setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{}
-\setbeamercolor{background canvas}{bg=KTH blue}
+\setbeamercolor{background canvas}{use=end title, bg=end title.bg}% Why doesn't parent work??
 \begin{frame}[b]
-\let\linesfilename\titlelinesfilename
+\let\linesfilename\endtitlelinesfilename
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor = center] at (current page.center) {\includegraphics[width=60mm]{logo/KTH_logo_RGB_vit.pdf}};
 \node[anchor = north west, inner sep=0pt] at (current page.north west) {\linesnorthwest};
 \node[anchor = south east, inner sep=0pt] at (current page.south east) {\linessoutheastii};% Hard coded south east lines
 \end{tikzpicture}%
-\end{frame}
+\end{frame}}%
 }
 
 % BLOCKS
