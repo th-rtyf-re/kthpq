@@ -5,6 +5,10 @@
 
 \mode<presentation>
 
+% DEFAULT PAPER SETTINGS
+% Ratio should be 16:9
+\geometry{paperwidth=254mm,paperheight=143mm}
+
 % Settings
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{kthpq-files/beamerfontthemekthpq}}
 
@@ -14,10 +18,6 @@
 \usepackage{kthpq-files/beamerinnerthemekthpq}
 \usepackage{kthpq-files/beamerouterthemekthpq}
 \usepackage{kthpq-files/beamercolorthemekthpq}
-
-% DEFAULT PAPER SETTINGS
-% Ratio should be 16:9
-\geometry{paperwidth=254mm,paperheight=143mm}
 
 % Macros
 \newcommand*{\inserttitlepage}[1][center]{%

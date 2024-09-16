@@ -16,6 +16,8 @@
 \setlength{\smalllogowidth}{17mm}
 \newlength{\outermargin}
 \setlength{\outermargin}{\smalllogowidth/3}
+\newlength{\headerwidth}
+\setlength{\headerwidth}{.5\paperwidth}
 
 % OUTER THEME
 % header, footer, frame title, etc.
@@ -29,11 +31,11 @@
 \defbeamertemplate{headline}{KTH-full}{%
 \donotcoloroutermaths
 \vspace*{\outermargin}
-\begin{beamercolorbox}[wd=.5\paperwidth, dp=\outermargin]{section in head/foot}
+\begin{beamercolorbox}[wd=\headerwidth, dp=\outermargin]{section in head/foot}
 \hspace*{\outermargin}%
 \includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
 \hspace*{\outermargin}%
-\parbox[b][\smalllogowidth][c]{\dimexpr\paperwidth-\smalllogowidth-3\outermargin\relax}{%
+\parbox[b][\smalllogowidth][c]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
 \raggedright \usebeamerfont{section in head/foot} \insertsection%
 }%
 \end{beamercolorbox}
