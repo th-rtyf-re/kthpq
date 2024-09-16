@@ -52,6 +52,7 @@
 
 % TITLE PAGE
 \defbeamertemplate{title page}{left}{%
+\donotcoloroutermaths
 \let\linesfilename\titlelinesfilename
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor = north west, inner sep = \innermargin] at (current page.north west) {\includegraphics[width=\largelogowidth]{\titlelogofilename}};
@@ -68,6 +69,7 @@
 }
 
 \defbeamertemplate{title page}{center}{%
+\donotcoloroutermaths
 \let\linesfilename\titlelinesfilename
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor = north, inner sep = 22mm] at (current page.north) {\includegraphics[width=35mm]{\titlelogofilename}};
@@ -91,6 +93,7 @@
 
 % SECTION PAGE
 \setbeamertemplate{section page}{%
+\donotcoloroutermaths
 \let\linesfilename\sectionlinesfilename
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor = north west, inner sep = \innermargin] at (current page.north west) {\includegraphics[width=\largelogowidth]{logo/KTH_logo_RGB_bla.pdf}};
