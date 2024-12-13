@@ -17,7 +17,7 @@
 \newlength{\outermargin}
 \setlength{\outermargin}{\smalllogowidth/3}
 \newlength{\headerwidth}
-\setlength{\headerwidth}{.5\paperwidth}
+\setlength{\headerwidth}{\paperwidth}
 
 % OUTER THEME
 % header, footer, frame title, etc.
@@ -28,17 +28,86 @@
 % HEADLINE
 \setbeamerfont{headline}{size=\footnotesize, shape=\normalfont}
 
+\defbeamertemplate*{headlineframetitle}{default}[1][left]
+{%
+  % \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  % \@tempdima=\textwidth%
+  % \advance\@tempdima by\beamer@leftmargin%
+  % \advance\@tempdima by\beamer@rightmargin%
+  
+}
+
+\setlength{\fboxsep}{0pt}
+
 \defbeamertemplate{headline}{KTH-full}{%
 \donotcoloroutermaths
-\vspace*{\outermargin}
-\begin{beamercolorbox}[wd=\headerwidth, dp=\outermargin]{section in head/foot}
+\vspace*{\outermargin}%
 \hspace*{\outermargin}%
 \includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
 \hspace*{\outermargin}%
+\vspace*{\outermargin}% Adjust space between headline and content. Not too satisfying
 \parbox[b][\smalllogowidth][c]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
-\raggedright \usebeamerfont{section in head/foot} \insertsection%
+\parbox[b][.45\smalllogowidth][b]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
+\usebeamercolor[fg]{section in head/foot}%
+\usebeamerfont{section in head/foot} \insertsection%
+% \vspace*{1ex}%
+}\vspace*{.05\smalllogowidth}
+
+\parbox[b][.5\smalllogowidth][b]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
+\usebeamercolor[fg]{frametitle}%
+\usebeamerfont{frametitle}%
+\vbox{}\vskip 0ex%
+\strut\insertframetitle\strut\par%
+{%
+  \ifx\insertframesubtitle\@empty%
+  \else%
+  {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+  \fi
+}%
+}%
+}%
+}
+
+\defbeamertemplate{headline}{KTH-frametitle-only}{%
+\donotcoloroutermaths
+\vspace*{\outermargin}
+\hspace*{\outermargin}%
+\includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
+\hspace*{\outermargin}%
+\begin{beamercolorbox}[wd=\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax, dp=\outermargin]{frametitle}
+    \usebeamerfont{frametitle}%
+    \parbox[b][\smalllogowidth][c]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
+    \vskip.5ex% center text on the circular part of the KTH logo
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    }%
+\end{beamercolorbox}%
+}
+
+\defbeamertemplate{headline}{KTH-section-only}{%
+\donotcoloroutermaths
+\vspace*{\outermargin}
+\hspace*{\outermargin}%
+\includegraphics[width=\smalllogowidth]{logo/KTH_logo_RGB_bla.pdf}%
+\hspace*{\outermargin}%
+\begin{beamercolorbox}[wd=\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax, dp=\outermargin]{section in head/foot}
+\usebeamerfont{section in head/foot}
+\parbox[b][\smalllogowidth][c]{\dimexpr\headerwidth-\smalllogowidth-3\outermargin\relax}{%
+\insertsection%
 }%
 \end{beamercolorbox}
+}
+
+% Define \insertframetile preliminarily, otherwise the compiler complains. See
+% https://tex.stackexchange.com/questions/236218/beamer-headline-with-frametitle#comment560126_236218
+\AtBeginDocument{
+\def\insertframetitle{}
+\def\insertframesubtitle{}
 }
 
 \setbeamertemplate{headline}[KTH-full]
@@ -82,9 +151,7 @@
 \setbeamertemplate{footline}[KTH-full]
 
 % FRAME
-\setbeamertemplate{frametitle}{%
-\insertframetitle%
-}
-
+% Frametitle is defined in headline; just cancel out the \vskip from beamer
+\setbeamertemplate{frametitle}{\vskip-0.25em}
 
 \mode<all>
