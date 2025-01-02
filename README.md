@@ -12,24 +12,23 @@ its communications department.
 External files
 --------------
 
-The files `beamer...themekthpq.sty` and the file `documentation.tex` are
-distributed under the MIT license. See `LICENSE.txt` for more details. This is
-only relevant if you plan on distributing the software. If you are just
-using the template for a presentation, there is no need to worry about this :)
+The files `beamer...themekthpq.sty` are distributed under the MIT license. See
+`LICENSE.txt` for more details. This is only relevant if you plan on
+distributing the software. If you are just using the template for a
+presentation, there is no need to worry about this :)
 
 This software includes parts of
 [Figtree](https://github.com/erikdkennedy/figtree/tree/master), found in the
 directory `fonts/Figtree`.
 
 This package also includes elements of KTH's visual identity. These are stored
-in the `kthpq-files/figs` directory.
+in the directory `kthpq-files/figs`.
 
 Other files
 -----------
 
 This software is meant to be accessible via the
-[Overleaf gallery](https://www.overleaf.com/gallery/tagged/kth), where it is
-accompanied by the `.tex` file `sample.tex`.
+[Overleaf gallery](https://www.overleaf.com/gallery/tagged/kth).
 
 How to use
 ----------
@@ -40,7 +39,7 @@ detailed presentation of the template.
 ### On Overleaf
 
 Use the [Overleaf template](https://www.overleaf.com/latex/templates/kthpq-a-kth-beamer-template/ntqfkcrrsbhf)
-or copy this repository to your project.
+or download this repository and import it into your project.
 
 ### On your computer
 
