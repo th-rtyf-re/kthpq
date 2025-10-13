@@ -64,7 +64,7 @@
 \parbox[t][.2\paperheight][b]{\textwidth}{\raggedright \usebeamerfont{title} \inserttitle} \vspace{10px} \\
 \usebeamercolor[fg]{subtitle}%
 \usebeamerfont{subtitle} \insertauthor \\
-\insertdate\ --- \insertinstitute%
+\insertdate\ \ifx\insertinstitute\empty\else---\fi\ \insertinstitute%
 \vspace{.1\paperheight}%
 }
 
@@ -83,7 +83,7 @@
 
 \usebeamercolor[fg]{subtitle}%
 \usebeamerfont{subtitle} \insertauthor \\
-\insertdate\ --- \insertinstitute%
+\insertdate\ \ifx\insertinstitute\empty\else---\fi\ \insertinstitute%
 \end{center}
 \vspace{.1\paperheight}%
 }
