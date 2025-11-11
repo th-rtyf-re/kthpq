@@ -71,8 +71,8 @@ The following options are available when loading the theme:
   for compiling with `kthpq` is `lualatex`, which is the only way to get the
   recommended fonts Figtree and Georgia. The option `pdflatex` should be
   faster, but uses Helvetica and Bitstream Charter.
-- `mathshape=sf`, `rm`, or `custom`. This determines the shape used for math.
-  The default is `sf`, sans-serif. `rm` corresponds to serif and `custom`
+- `mathshape=rm`, `sf`, or `custom`. This determines the shape used for math.
+  The default is `rm`, serif. `sf` corresponds to sans serif and `custom`
   means that no new math font is loaded (in case you want to load your own
   font).
 - `fontdir=<directory>` or `auto`. Provide the directory path (relative or

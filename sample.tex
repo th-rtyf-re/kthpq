@@ -10,9 +10,9 @@
 % Probably load as late as possible
 % Other options are
 % - engine=pdflatex to compile in pdfLaTeX (with different fonts),
-% - mathshape=rm to use serif font for math,
+% - mathshape=sf to use sans serif font for math (this is missing some font families),
 % - mathsahpe=custom to not set any math font (so that you can define your own math fonts)
-\usetheme[engine=lualatex, mathshape=sf, fontdir=kthpq-files/fonts/Figtree/]{kthpq}
+\usetheme[engine=lualatex, fontdir=kthpq-files/fonts/Figtree/]{kthpq}
 \setmonofont{Bitstream Vera Sans Mono}[Scale=.9]
 
 % Custom colors (see beamercolorthemecustom.sty for more details)
@@ -34,7 +34,7 @@
 
 \begin{frame}{Frame title}
 \begin{block}{Block}
-Lorem ipsum!
+Lorem ipsum! $x$
 \end{block}
 \end{frame}
 
